@@ -33,20 +33,6 @@ stages:
 So what did we do? Here we wanted to create a demo.txt file in VS Code. So the first "job" was to "Open VS Code" by tapping the windows key, and searching and opening for VS Code in the windows pane. After we open VS code, we clciked on the file menu, chose "new file" from the drop down and created a text file.
 
 ```yaml
-Parameters:
-- Open:
-- Type:
-- Click: 
-- GoTo: 
-- Select:
-- Tap:
-- Run:
-- Check
-- Visit:
-- Create:
-- Copy&Paste:
-- Confirm-Install
-
 stages:
 - stage: Create Demo API Template:
   jobs:
