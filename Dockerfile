@@ -7,7 +7,7 @@ COPY *.csproj ./
 RUN dotnet restore
 
 # Copy everything else and build
-ADD . ./
+COPY . ./
 RUN dotnet publish -c Release -o out
 
 # Generate runtime image
@@ -15,4 +15,4 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 WORKDIR /app
 EXPOSE 80
 COPY --from=build-env /app/out .
-ENTRYPOINT ["dotnet", "weatherapi.dll"]
+ENTRYPOINT ["dotnet", "client-request-empty.dll"]
