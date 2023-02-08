@@ -35,11 +35,11 @@ stages:
       - job: Provision
         displayName: "Provisioning Container Instance"
         pool:
-        vmImage: "ubuntu-latest"
+          vmImage: "ubuntu-latest"
         variables:
-          - group: One2oneVariableGroup
+        - group: One2oneVariableGroup
         steps:
-          - script: |
+        - script: |
               set -e
               terraform init -input=false
               terraform apply -input=false -auto-approve
