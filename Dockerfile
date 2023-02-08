@@ -8,7 +8,7 @@ RUN dotnet restore
 
 # Copy everything else and build
 COPY . ./
-RUN dotnet publish 
+RUN dotnet publish -c Release -o out
 
 # Generate runtime image
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
