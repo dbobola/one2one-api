@@ -3,6 +3,21 @@ provider "azurerm" {
     features {}
 }
 
+
+terraform {
+        backend "azurerm" {
+            resource_group_name = 'one2oneapi'
+            storage_account_name = 'one2onestorageaccount'
+            container_name = 'one2oneblobcontainer'
+            key = "terraform.tfstate"
+        }
+    }
+variable imagebuild {
+  type        = string
+  description = "Latest One2one API Image Build"
+}
+
+
 resource "azurerm_resource_group" "one2one-rgf" {
     name = "one2one-rg"
     location = "UAE North"
@@ -17,7 +32,7 @@ resource "azurerm_container_group" "" {
     os_type             = "Linux"
     container {
         name            = "one2one-cn"
-        image           = "dbobola/one2oneapi"
+        image           = "dbobola/one2oneapi:${var.imagebuild}"
             cpu             = "1"
             memory          = "1"
 
